@@ -2,42 +2,49 @@
 @import url('./base.css');
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .loader {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    width: 64px;
-    height: 64px;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translate(-50%, -50%) rotate(45deg);
-    overflow: hidden;
+  display: block;
+  margin: 10px auto;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: rotate(45deg);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  margin: auto;
+  background: #4e75ff;
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  margin: auto;
+  background: #de3500;
+  animation: diamondLoader 2s linear infinite;
+}
+
+@keyframes diamondLoader {
+
+  0%,
+  10% {
+    transform: translate(-64px, -64px) rotate(-45deg)
   }
-  .loader:after{
-    content: '';
-    position: absolute;
-    inset: 8px;
-    margin: auto;
-    background: #4e75ff;
+
+  90%,
+  100% {
+    transform: translate(0px, 0px) rotate(-45deg)
   }
-  .loader:before{
-    content: '';
-    position: absolute;
-    inset: -15px;
-    margin: auto;
-    background: #de3500;
-    animation: diamondLoader 2s linear infinite;
-  }
-  @keyframes diamondLoader {
-    0%  ,10% {
-      transform: translate(-64px , -64px) rotate(-45deg)
-    }
-    90% , 100% {
-      transform: translate(0px , 0px) rotate(-45deg)
-    }
-  }
+}
 
 .gallery {
   display: grid;
@@ -87,6 +94,7 @@
   color: #fff;
   text-align: center;
 }
+
 .form input {
   border: 1px solid #808080;
   border-radius: 4px;
@@ -111,4 +119,16 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-}    
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #4e75ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
